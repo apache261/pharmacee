@@ -1,4 +1,4 @@
 <?php
-$api_path = "http://localhost/pharma/pharmacee/";
+$api_path = "http://pharmafront/";
 $asset_path = "https://www.lynxfx.tech/";
 ?>
