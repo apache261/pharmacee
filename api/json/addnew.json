@@ -1,0 +1,33 @@
+{
+    "info":{
+      "firstname":"Kaye",
+      "middlename":"Senecio",
+      "familyname":"Duazo",
+      "gender":2,
+      "birthday":"10-26-1999",
+      "active":1
+      },
+    "address":{
+      "barangay":"barangay1",
+      "street":"#5",
+      "city":"Silay",
+      "province":"Negros Occidental",
+      "zipcode":"66666",
+      "active":1
+    },
+    "contact":{
+      "type":"email",
+      "info":"key@gmail.com",
+      "active":1
+    },
+    "auth":{
+      "password": "12345",
+      "active": 1,
+      "question":"zx ",
+      "answer": "xz "
+    },
+    "role":{
+        "value":2,
+        "active":1
+    }
+  }
