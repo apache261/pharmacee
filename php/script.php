@@ -982,7 +982,7 @@ lastDetect = 0;
 	var frm = `<div class="has-icon-left-right " style="margin-top:3vh; margin-bottom:3vh; margin-left:25%;margin-right:25%">
 	<input type="text" class="form-input" id ="search_item_encoder" onkeyup="searchItemss(this)" placeholder="Type here" style="height:6vh;border-radius:20px;padding-left:50px; name="ds">
 	<i class="form-icon-left fas fa-search text-gray h6 "></i>
-	<i class="form-icon-right h4 far fa-barcode-read text-primary " onclick="scannerEncoderModal()" style="padding-right:40px"></i>
+	<i class="form-icon-right h4 fas fa-barcode-read text-primary " onclick="scannerEncoderModal()" style="padding-right:40px"></i>
 
 
 	</div>`
