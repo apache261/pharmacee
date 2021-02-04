@@ -1,7 +1,7 @@
 <?php
 class Database{
 	private $db_host ="sql12.freemysqlhosting.net";
-	private $db_name = "ql12390647";
+	private $db_name = "sql12390647";
 	private $db_user_name = "sql12390647";
 	private $db_password = "xGrearFWH2";
 	private $db_conn;
