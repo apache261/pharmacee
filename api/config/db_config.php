@@ -13,6 +13,7 @@ class Database{
 		$this->db_conn = new PDO('mysql:host='.$this->db_host.';dbname='.$this->db_name,$this->db_user_name,$this->db_password,$init);
 		return $this->db_conn;
 	}catch(PDOException $error){
+		echo json_encode($error);
 		return null;
 	}
 }
