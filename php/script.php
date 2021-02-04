@@ -1597,6 +1597,9 @@ function popViewMedicine(ItemID){
 var managerItemList;
 var itemMessage = "";
 var docbtn = `<a class="btn btn-primary mr-2" style="font-size:25px" onclick="downloadXLS()"><i class="fas fa-file-download"></i></a><a class="btn btn-primary ml-2" style="font-size:25px" onclick="printTable()"><i class="fas fa-print "></i></a>`;
+var docbtn2 = `<div class="" style="margin-top: 2vh">
+	<a class="btn btn-error" href="javascript:searchExpire(3)"> Show Today</a>
+	</div>`;
 
 
 function formatID(value){
@@ -1682,9 +1685,11 @@ function searchExpire(key){
 	itemMessage = "Items Expired Today";
 	// var keyword= document.getElementById(isd).value;
 	if(key == 2){
+
 		itemMessage = "To be expire this week";
 	}
 	if(key == 3){
+
 		itemMessage = "Items Expired Today";
 	}
 
@@ -1695,12 +1700,13 @@ function searchExpire(key){
 	<a class="btn btn-error" href="javascript:searchExpire(2)"> Show for this week</a>
 	</div>`;
 	if(key == 2){
+
 		frm = `<div class="" style="margin-top: 2vh">
 	<a class="btn btn-error" href="javascript:searchExpire(3)"> Show Today</a>
 	</div>`;
 	}
-
-	$('#titleTable2').html(frm);
+	clearCardSearch();
+	$('#titleTable3').html(frm);
 	$('#titleTable').html(itemMessage);
 	$('#content_area').html(newdiv);
 	managerloadingArea();
@@ -2005,7 +2011,7 @@ function showCardSearchBar(isd){
 	<button class="btn input-group-btn bg-primary" style=" border: none; height: 6vh; width: 60px"><i class="fas fa-search h3"></i></button>
 	</div>`;
 
-
+	$('#titleTable3').html('');
 	$('#titleTable2').html(frm);
 	$('#titleTable').html(itemMessage);
 	$('#content_area').html(newdiv);
@@ -2106,10 +2112,18 @@ function showDocBtn(){
 	$('#titleTable').html(itemMessage);
 	$('#docbtn').html(docbtn);
 }
+function showDocBtn2(){
+	// $('#titleTable').html(itemMessage);
+	$('#docbtn2').html(docbtn2);
+}
 
 function clearDocBtn(){
 		// $('#titleTable').html(``);
 		$('#docbtn').html(``);
+	}
+function clearDocBtn2(){
+		// $('#titleTable').html(``);
+		$('#docbtn2').html(``);
 	}
 	function showProductName(){
 		cardCommon = "NAME: " + cardCommon;

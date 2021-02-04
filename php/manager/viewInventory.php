@@ -34,6 +34,7 @@
 	
 
 <div class="bg-gray my-2" id="content_area"style=""></div>
+<div id="titleTable3"  class="h6 text-center text-bold text-uppercase py-2 " ></div>
 </div>
 
 </div>
