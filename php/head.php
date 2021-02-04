@@ -1,6 +1,6 @@
 		<header class="navbar container bg-primary" style="height: 8vh">
 			<section class="navbar-section">
-				<div class="text-light text-bold ml-2"><i class="far h1 fa-eye-evil"></i>PharmaSee</div>
+				<div class="text-light text-bold ml-2"><i class="fas h1 fa-eye-evil"></i>PharmaSee</div>
 			</section>
 			<section class="navbar-section"></section>
 			<section class="navbar-section"></section>
@@ -15,7 +15,7 @@
 								<div class="text-gray" id="userRoleee">Encoder</div>
 							</div>
 							<div class="card-body">
-								<div class=""><a href="javascript:openUpdatePasswordModal()" class=" text-dark "style="text-decoration: none;" ><i class="far fa-user-lock mr-2 h5 text-primary"></i><span class="text-dark">Password</span></a></div>
+								<div class=""><a href="javascript:openUpdatePasswordModal()" class=" text-dark "style="text-decoration: none;" ><i class="fas fa-user-lock mr-2 h5 text-primary"></i><span class="text-dark">Password</span></a></div>
 								
 							</div>
 							<div class="card-footer">
