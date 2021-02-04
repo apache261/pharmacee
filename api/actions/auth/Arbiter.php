@@ -57,12 +57,15 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     			break;
     			case 2:
     			$path = "encoder.php";
+				header('location:https://pharmafront.herokuapp.com/encoder.php');
     			break;
     			case 3:
     			$path = "manager.php";
+				header('location:https://pharmafront.herokuapp.com/manager.php');
     			break;
     			case 4:
     			$path = "dashboard.php";
+				header('location:https://pharmafront.herokuapp.com/dashboard.php');
     			break;
     			default:
 		 	// echo "Path not found";
