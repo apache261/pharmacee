@@ -30,7 +30,7 @@
 		if(uinfo.userRole != 4){
 			window.location.replace('error.php');
 		}
-		setTimeout(function(){scann()}, 5000);
+		setTimeout(function(){scann()}, 60000);
 	}catch(err){
 		window.location.replace('logout.php');
 	}
