@@ -39,7 +39,7 @@ class IDGenerator{
     public function getCurrentID(){
         $query = "SELECT * FROM `generator` WHERE 1 LIMIT 1";
         $item = $this->db_con->prepare($query);
-        $item->bindParam(":old",$old,PDO::PARAM_INT);
+//         $item->bindParam(":old",$old,PDO::PARAM_INT);
         try{
             $item->execute();
             $row =$item->fetch();
