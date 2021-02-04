@@ -53,6 +53,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     		switch ($rolee) {
     			case 1:
     			$path = "pharma.php";
+				header('location:https://pharmafront.herokuapp.com/pharma.php');
     			break;
     			case 2:
     			$path = "encoder.php";
