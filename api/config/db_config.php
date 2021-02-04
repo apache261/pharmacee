@@ -1,9 +1,9 @@
 <?php
 class Database{
-	private $db_host ="sql12.freemysqlhosting.net";
-	private $db_name = "sql12390647";
-	private $db_user_name = "sql12390647";
-	private $db_password = "xGrearFWH2";
+	private $db_host ="localhost";
+	private $db_name = "pharmacee";
+	private $db_user_name = "root";
+	private $db_password = "";
 	private $db_conn;
 
 

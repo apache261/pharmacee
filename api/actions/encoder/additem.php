@@ -132,19 +132,19 @@ class AddItem{
 	public $itemquantity;
 	public $itemQuantity;
 	public $itemQuantityDeduction = 0;
-
+	public $currr;
 
 	private $itemInsertReason = 1;
 	private $itemCurrentOnHand;
 
 	public function __construct($db){
 		$this->db_conn = $db;
-
+		$this->currr = date('Y-m-d');
 	}
 
 
 	public function addItem(){
-		$query = "INSERT INTO `item`(`ItemID`, `CommonName`, `GenericName`, `Manufacturer`, `Description`, `Form`, `Expiration`, `Remarks`, `EmployeeID`) VALUES (:uid,:common,:generic,:manufac,:desr,:form,:exp,:remarks,:author)";
+		$query = "INSERT INTO `item`(`ItemID`, `CommonName`, `GenericName`, `Manufacturer`, `Description`, `Form`, `Expiration`, `Remarks`, `EmployeeID`, `ReceiveDate`) VALUES (:uid,:common,:generic,:manufac,:desr,:form,:exp,:remarks,:author, :rDate)";
 		$item = $this->db_conn->prepare($query);
 		try{
 			
@@ -158,7 +158,7 @@ class AddItem{
 			
 			$item->bindParam(":remarks",$this->itemRemarks,PDO::PARAM_STR);
 			$item->bindParam(":author",$this->itemAuthor,PDO::PARAM_INT);
-
+			$item->bindParam(":rDate",$this->currr,PDO::PARAM_STR);
 			if($item->execute()){
 				if($this->getTotal()){
 					if($this->add_To_Transaction_Table()){
@@ -200,13 +200,14 @@ class AddItem{
 //Add item to expiry table
 //to monitor expired medecine
 	private function add_to_item_expiry(){
+	
 		$sql = "INSERT INTO `item_expiry`(`ItemID`, `expiration`, `quantity`, `receivedDate`) VALUES (:id,:exp,:quan,:rDate)";
 		try{
 			$item = $this->db_conn->prepare($sql);
 			$item->bindParam(":id",$this->itemID,PDO::PARAM_INT);
 			$item->bindParam(":exp",$this->itemExp,PDO::PARAM_STR);
 			$item->bindParam(":quan",$this->itemQuantity,PDO::PARAM_INT);
-			$item->bindParam(":rDate",date('Y-m-d'),PDO::PARAM_STR);
+			$item->bindParam(":rDate",$this->currr,PDO::PARAM_STR);
 			return $item->execute();
 		}catch(PDOException $err){
 			echo $err;

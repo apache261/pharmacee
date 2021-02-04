@@ -106,11 +106,12 @@ class Deduct{
 
 
 private function deduct_To_Transaction_Table(){
+	$currr = date('Y-m-d');
 		if( $this->itemCurrentOnHand < $this->itemQuantityDeduction){
 			return false;
 		}
 		$newBalance = $this->itemCurrentOnHand - $this->itemQuantityDeduction;
-		$sql = "INSERT INTO `transaction`( `ItemID`, `reason`, `balance`, `QuantityOut`) VALUES (:id,:reason,:balance,:quantityOut)";
+		$sql = "INSERT INTO `transaction`( `ItemID`, `reason`, `balance`, `QuantityOut`, `entrydate`) VALUES (:id,:reason,:balance,:quantityOut,:rDate)";
 
 		$item = $this->db_conn->prepare($sql);
 		try{
@@ -118,7 +119,7 @@ private function deduct_To_Transaction_Table(){
 			$item->bindParam(":reason",$this->itemDeductReason,PDO::PARAM_INT);
 			$item->bindParam("balance",$newBalance,PDO::PARAM_INT);
 			$item->bindParam(":quantityOut",$this->itemQuantityDeduction,PDO::PARAM_INT);
-			
+			$item->bindParam(":rDate",$currr,PDO::PARAM_STR);
 			if($item->execute()){
 				return true;
 			}

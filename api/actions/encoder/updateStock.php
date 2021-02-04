@@ -115,8 +115,9 @@ class UpdateStock{
 }
 
 private function add_To_Transaction_Table(){
+	$currr = date('Y-m-d');
 	$newBalance = $this->itemCurrentOnHand + $this->itemQuantity;
-	$sql = "INSERT INTO `transaction`( `ItemID`, `reason`, `balance`, `QuantityIn`) VALUES (:id,:reason,:balance,:quantityIn)";
+	$sql = "INSERT INTO `transaction`( `ItemID`, `reason`, `balance`, `QuantityIn`, `entrydate`) VALUES (:id,:reason,:balance,:quantityIn,:rDate)";
 
 	$item = $this->db_conn->prepare($sql);
 	try{
@@ -124,7 +125,7 @@ private function add_To_Transaction_Table(){
 		$item->bindParam(":reason",$this->itemInsertReason,PDO::PARAM_INT);
 		$item->bindParam("balance",$newBalance,PDO::PARAM_INT);
 		$item->bindParam(":quantityIn",$this->itemQuantity,PDO::PARAM_INT);
-
+		$item->bindParam(":rDate",$currr,PDO::PARAM_STR);
 		if($item->execute()){
 			return true;
 		}
@@ -162,13 +163,14 @@ private function getTotal(){
 
 // Insert into expiry table
 private function insertIntoExpiry(){
+	$currr = date('Y-m-d');
 	$sql = "INSERT INTO `item_expiry` (`ItemID`, `expiration`, `quantity`, `receivedDate`) VALUES (:itemid, :expiration, :quantity,:rDate)";
 	$item = $this->db_conn->prepare($sql);
 	try{
 		$item->bindParam(":itemid",$this->itemID,PDO::PARAM_INT);
 		$item->bindParam(":expiration",$this->itemExpiry,PDO::PARAM_STR);
 		$item->bindParam(":quantity",$this->itemQuantity,PDO::PARAM_INT);
-		$item->bindParam(":rDate",date('Y-m-d');,PDO::PARAM_STR);
+		$item->bindParam(":rDate",$currr,PDO::PARAM_STR);
 		return $item->execute();
 	}catch(PDOException $err){
 		echo $err;

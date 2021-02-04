@@ -63,10 +63,10 @@ public function scan_expired_items(){
 					$this->deductInventory();
 					$this->updateExpiryStatus();
 				}
-			echo json_encode($row);
+			echo json_encode(array('Data' => $row, 'Message' => count($row),"Success" => 1));
 			exit();
 			}
-		echo json_encode(array('Message'=>"None"));
+		echo json_encode(array('Message'=>0,"Success" => 1));
 		}
 
 
