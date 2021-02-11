@@ -1895,7 +1895,7 @@ function formatOut(amount){
 			// {title:"ID", field:"ItemID", sorter:"number", hozAlign:"left"},
 			
 			{title:"Date", field:"entry",hozAlign:"left"},
-			{title:"In", field:"quantityIN",formatter:function(cell,formatterParams){return formatIn(cell.getValue());}, hozAlign:"left"},
+			{title:"In", field:"quantityIn",formatter:function(cell,formatterParams){return formatIn(cell.getValue());}, hozAlign:"left"},
 			{title:"Out", field:"quantityOut",formatter: function(cell, formatterParams){return formatOut(cell.getValue());},hozAlign:"left"},
 			{title:"Reason", field:"reason", formatter:function(cell,formatterParams){return interpretReason(cell.getValue());}, hozAlign:"left"},
 			{title:"Balance", field:"balance", hozAlign:"left"},
