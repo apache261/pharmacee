@@ -64,9 +64,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$isvalidEmail = filter_var($item->contactInformation, FILTER_VALIDATE_EMAIL)?true:false;
 	$isvalidRole = !empty($item->roleValue) && preg_match('#[1-4]{1}#', $item->roleValue);
 	$isvalidEmployStatus = !empty($item->userEmpStatus) && preg_match('#[1-4]{1}#', $item->userEmpStatus);
-
+	$isvalidUser = is_numeric($item->userID);
 	$validation_results = array(
-// 		"UserID" => $isvalidUser,
+		"UserID" => $isvalidUser,
 		"FirstName" => $isvalidFirstName,
 		"LastName" => $isvalidLastName,
 		"MiddleName" => $isvalidMiddleName,
