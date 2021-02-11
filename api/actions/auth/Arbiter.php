@@ -68,7 +68,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 // 				header('location:https://pharmafront.herokuapp.com/dashboard.php');
     			break;
     			default:
-		 	// echo "Path not found";
+		 	$path = "error.php";
     			break;
     		}
 
