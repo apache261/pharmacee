@@ -88,7 +88,7 @@ class Inventory{
 		item.receivedate,
        (SELECT IFNULL((sum(transaction.QuantityIn)),0) from transaction WHERE transaction.ItemID = item.ItemID) as totalin,
        (SELECT IFNULL((sum(transaction.QuantityOut)),0) from transaction WHERE transaction.ItemID = item.ItemID) as totalout,
-       (SELECT transaction.balance from transaction WHERE transaction.ItemID = item.ItemID order by entrydate  desc LIMIT 1) as remaining
+       (SELECT transaction.balance from transaction WHERE transaction.ItemID = item.ItemID ORDER BY transactionID  desc LIMIT 1) as remaining
        from item,transaction order by item.receivedate desc LIMIT 15  ";
 		try{
 			$item  = $this->db_conn->prepare($sql);
