@@ -53,19 +53,19 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     		switch ($rolee) {
     			case 1:
     			$path = "pharma.php";
-				header('location:https://pharmafront.herokuapp.com/pharma.php');
+// 				header('location:https://pharmafront.herokuapp.com/pharma.php');
     			break;
     			case 2:
     			$path = "encoder.php";
-				header('location:https://pharmafront.herokuapp.com/encoder.php');
+// 				header('location:https://pharmafront.herokuapp.com/encoder.php');
     			break;
     			case 3:
     			$path = "manager.php";
-				header('location:https://pharmafront.herokuapp.com/manager.php');
+// 				header('location:https://pharmafront.herokuapp.com/manager.php');
     			break;
     			case 4:
     			$path = "dashboard.php";
-				header('location:https://pharmafront.herokuapp.com/dashboard.php');
+// 				header('location:https://pharmafront.herokuapp.com/dashboard.php');
     			break;
     			default:
 		 	// echo "Path not found";
