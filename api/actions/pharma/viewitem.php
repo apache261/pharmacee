@@ -51,7 +51,7 @@ class ViewItem{
 	public function getData(){
 		$this->itemID = $this->itemID.'%';
 
-		$sql = "SELECT DISTINCT item.ItemID, item.CommonName,item.GenericName,item.Expiration,item.Manufacturer,item.form,(SELECT transaction.balance from transaction WHERE transaction.ItemID = item.ItemID order by entrydate  desc LIMIT 1) as remaining from item,transaction WHERE item.ItemID LIKE :key1 OR item.CommonName LIKE :key2 OR item.GenericName LIKE :key3 OR item.Manufacturer";
+		$sql = "SELECT DISTINCT item.ItemID, item.CommonName,item.GenericName,item.Expiration,item.Manufacturer,item.form,(SELECT transaction.balance from transaction WHERE transaction.ItemID = item.ItemID ORDER BY transactionID  desc LIMIT 1) as remaining from item,transaction WHERE item.ItemID LIKE :key1 OR item.CommonName LIKE :key2 OR item.GenericName LIKE :key3 OR item.Manufacturer";
 	
 		try{
 			$item = $this->db_conn->prepare($sql);
