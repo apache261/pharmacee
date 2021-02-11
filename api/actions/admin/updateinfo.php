@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$isvalidEmployStatus = !empty($item->userEmpStatus) && preg_match('#[1-4]{1}#', $item->userEmpStatus);
 
 	$validation_results = array(
-		"UserID" => $isvalidUser,
+// 		"UserID" => $isvalidUser,
 		"FirstName" => $isvalidFirstName,
 		"LastName" => $isvalidLastName,
 		"MiddleName" => $isvalidMiddleName,
